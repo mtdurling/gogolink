@@ -1,8 +1,8 @@
 package main
 
 import (
-	"app/app/model"
-	"app/server"
+	"goly/model"
+	"goly/server"
 )
 
 func main() {

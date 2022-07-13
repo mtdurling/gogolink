@@ -1,9 +1,9 @@
 package server
 
 import (
-	"app/app/model"
-	"app/utils"
 	"fmt"
+	"goly/model"
+	"goly/utils"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -22,7 +22,7 @@ func redirect(ctx *fiber.Ctx) error {
 
 	goly.Clicked += 1
 
-	err = model.UpdateGol(goly)
+	err = model.UpdateGoly(goly)
 	if err != nil {
 		fmt.Printf("Error updating")
 	}
@@ -81,7 +81,7 @@ func createGoly(ctx *fiber.Ctx) error {
 		goly.Goly = utils.RandomURL(8)
 	}
 
-	err = model.CreateGol(goly)
+	err = model.CreateGoly(goly)
 
 	if err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
@@ -107,7 +107,7 @@ func UpdateGoly(ctx *fiber.Ctx) error {
 		})
 	}
 
-	err = model.UpdateGol(goly)
+	err = model.UpdateGoly(goly)
 
 	if err != nil {
 		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
